@@ -1,0 +1,3 @@
+Geist.woff2, GeistMono.woff2: Geist and Geist Mono by Vercel. SIL Open Font License 1.1.
+InstrumentSerif.woff2: Instrument Serif by Instrument. SIL Open Font License 1.1.
+License text: https://openfontlicense.org/open-font-license-official-text/
