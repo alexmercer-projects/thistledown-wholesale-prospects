@@ -20,7 +20,7 @@ for (const [name, w, h, mobile] of [['desktop-1440', 1440, 900, false], ['mobile
   await send('Page.navigate', { url: url + (url.includes('?') ? '&' : '?') + 'static' });
   await sleep(2500);
   const m = await ev(`({sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth, h: document.documentElement.scrollHeight,
-    tops: Object.fromEntries(['list','scoring','checks','handoff'].map(i => [i, Math.round(document.getElementById(i).getBoundingClientRect().top + scrollY)])),
+    tops: Object.fromEntries(['list','scoring','checks','handoff'].filter(i => document.getElementById(i)).map(i => [i, Math.round(document.getElementById(i).getBoundingClientRect().top + scrollY)])),
     wide: [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > document.documentElement.clientWidth + 1 && getComputedStyle(e).position !== 'fixed' && !e.closest('.sheet__tabs')).slice(0,5).map(e => e.tagName + '.' + e.className)})`);
   console.log(name, JSON.stringify(m));
   const shot = async (file, full) => {
